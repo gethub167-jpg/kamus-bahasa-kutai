@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamus Bahasa Kutai</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="brand">📖 Kamus Bahasa Kutai</a>
+
+        <div class="nav-links">
+            <a href="/">⌂ Beranda</a>
+            <a href="#tentang">ⓘ Tentang</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Kamus Bahasa Kutai</h1>
+        <p>
+            Temukan arti kata dan pelajari kekayaan kosakata
+            Bahasa Kutai dengan mudah.
+        </p>
+
+        <form action="/" method="GET" class="search-box">
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Cari kata Bahasa Kutai atau Indonesia..."
+                value="{{ kata }}"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">Cari ➜</button>
+        </form>
+    </header>
+
+    <main class="content">
+
+        {% if kata %}
+            <section class="results-section">
+                <h2>Hasil pencarian: "{{ kata }}"</h2>
+
+                {% if hasil %}
+                    <p class="jumlah">
+                        Ditemukan {{ hasil|length }} hasil pencarian.
+                    </p>
+
+                    {% for item in hasil %}
+                        <article class="result-card">
+                            <h3>{{ item['kata_kutai'] }}</h3>
+
+                            {% if item['kata_turunan'] %}
+                                <p>
+                                    <strong>Kata turunan:</strong>
+                                    {{ item['kata_turunan'] }}
+                                </p>
+                            {% endif %}
+
+                            <p>
+                                <strong>Arti Indonesia:</strong>
+                                {{ item['arti_indonesia'] }}
+                            </p>
+
+                            {% if item['contoh_kalimat'] %}
+                                <div class="contoh">
+                                    <strong>Contoh kalimat:</strong>
+                                    <p>{{ item['contoh_kalimat'] }}</p>
+
+                                    {% if item['terjemahan_contoh'] %}
+                                        <strong>Terjemahan:</strong>
+                                        <p>{{ item['terjemahan_contoh'] }}</p>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </article>
+                    {% endfor %}
+
+                {% else %}
+                    <div class="not-found">
+                        <h3>🔍 Kosakata tidak ditemukan</h3>
+                        <p>
+                            Coba periksa kembali kata yang kamu masukkan.
+                        </p>
+                    </div>
+                {% endif %}
+            </section>
+
+        {% else %}
+            <section class="about-card" id="tentang">
+                <div class="about-text">
+                    <h2>🪐 Tentang Kamus</h2>
+
+                    <p>
+                        Kamus Bahasa Kutai merupakan platform digital
+                        sederhana yang bertujuan membantu masyarakat
+                        mengenal, mempelajari, dan melestarikan kosakata
+                        Bahasa Kutai melalui teknologi.
+                    </p>
+
+                    <div class="notice">
+                        ⭐ Mari bersama menjaga dan melestarikan
+                        Bahasa Kutai.
+                    </div>
+                </div>
+
+                <div class="about-icon">🌍</div>
+            </section>
+        {% endif %}
+
+    </main>
+
+    <footer>
+        <p>© 2026 Kamus Bahasa Kutai</p>
+        <p>Melestarikan bahasa, menjaga budaya.</p>
+    </footer>
+
+</body>
+</html>

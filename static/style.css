@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 25%, rgba(91, 35, 190, 0.55), transparent 35%),
+        radial-gradient(ellipse at 85% 20%, rgba(0, 95, 210, 0.35), transparent 35%),
+        radial-gradient(ellipse at 50% 85%, rgba(116, 20, 180, 0.4), transparent 45%),
+        linear-gradient(135deg, #05051d, #10052d 50%, #020b24);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Bintang-bintang */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(1px 1px at 90px 80px, #b9a5ff, transparent),
+        radial-gradient(2px 2px at 150px 160px, #ffffff, transparent),
+        radial-gradient(1px 1px at 220px 50px, #8bbdff, transparent),
+        radial-gradient(2px 2px at 300px 190px, #ffffff, transparent);
+    background-size: 350px 250px;
+    opacity: 0.65;
+}
+
+/* Navigasi */
+.navbar {
+    width: 94%;
+    max-width: 1450px;
+    margin: 22px auto 0;
+    padding: 14px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border: 1px solid rgba(163, 112, 255, 0.6);
+    border-radius: 18px;
+    background: rgba(8, 5, 30, 0.78);
+    box-shadow: 0 0 20px rgba(126, 55, 255, 0.25);
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #e4dcff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d6a4ff;
+    text-shadow: 0 0 12px #a34dff;
+}
+
+/* Bagian utama */
+.hero {
+    width: 92%;
+    max-width: 900px;
+    margin: 105px auto 65px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 6vw, 65px);
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow:
+        0 0 8px #a65cff,
+        0 0 20px #772bff,
+        0 0 40px #5420ff;
+}
+
+.hero > p {
+    color: #e4dcff;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 55px;
+}
+
+/* Kotak pencarian */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 7px 8px 7px 20px;
+    border: 2px solid #7765ff;
+    border-radius: 50px;
+    background: rgba(5, 7, 35, 0.88);
+    box-shadow:
+        0 0 12px rgba(88, 100, 255, 0.7),
+        0 0 30px rgba(137, 48, 255, 0.25);
+}
+
+.search-icon {
+    font-size: 27px;
+    color: #ffffff;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 5px;
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box input::placeholder {
+    color: #b9b5d6;
+}
+
+.search-box button {
+    padding: 14px 30px;
+    border: 1px solid #d3a2ff;
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, #8b35ff, #4c24e8);
+    box-shadow: 0 0 15px #853cff;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px #a85cff;
+}
+
+/* Konten */
+.content {
+    width: 92%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tentang kamus */
+.about-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 32px;
+    border: 2px solid rgba(90, 155, 255, 0.8);
+    border-radius: 20px;
+    background: rgba(5, 7, 35, 0.82);
+    box-shadow:
+        0 0 15px rgba(55, 120, 255, 0.5),
+        inset 0 0 20px rgba(110, 60, 255, 0.12);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.about-card p {
+    color: #e3e1f5;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.about-icon {
+    font-size: 75px;
+    filter: drop-shadow(0 0 15px #7861ff);
+}
+
+.notice {
+    margin-top: 18px;
+    padding: 13px;
+    color: #70e6ff;
+    border-radius: 10px;
+    background: rgba(50, 80, 200, 0.25);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Hasil pencarian */
+.results-section {
+    padding: 28px;
+    border: 1px solid rgba(130, 105, 255, 0.7);
+    border-radius: 18px;
+    background: rgba(5, 7, 35, 0.88);
+    box-shadow: 0 0 22px rgba(100, 60, 255, 0.25);
+}
+
+.results-section h2 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.jumlah {
+    color: #a9dfff;
+    margin-bottom: 20px;
+}
+
+.result-card {
+    padding: 22px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(120, 145, 255, 0.45);
+    border-radius: 13px;
+    background: rgba(35, 25, 85, 0.55);
+}
+
+.result-card h3 {
+    color: #c8a4ff;
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.result-card p {
+    color: #eeeeff;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.result-card strong {
+    color: #80dfff;
+}
+
+.contoh {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 3px solid #a65cff;
+    border-radius: 7px;
+    background: rgba(8, 10, 45, 0.7);
+}
+
+/* Tidak ditemukan */
+.not-found {
+    text-align: center;
+    padding: 35px 15px;
+    color: #dedaf5;
+}
+
+.not-found h3 {
+    color: #d1a7ff;
+    margin-bottom: 12px;
+}
+
+/* Footer */
+footer {
+    padding: 35px 15px;
+    margin-top: 45px;
+    text-align: center;
+    color: #aaa4d2;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 13px;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .hero {
+        margin: 65px auto 45px;
+    }
+
+    .hero > p {
+        font-size: 14px;
+        margin-bottom: 35px;
+    }
+
+    .search-box {
+        gap: 5px;
+        padding-left: 12px;
+    }
+
+    .search-icon {
+        font-size: 21px;
+    }
+
+    .search-box input {
+        font-size: 13px;
+    }
+
+    .search-box button {
+        padding: 12px 17px;
+        font-size: 14px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+
+    .about-icon {
+        display: none;
+    }
+
+    .about-card h2 {
+        font-size: 21px;
+    }
+
+    .about-card p {
+        font-size: 14px;
+    }
+
+    .results-section {
+        padding: 18px;
+    }
+
+    .results-section h2 {
+        font-size: 18px;
+    }
+
+    .result-card {
+        padding: 17px;
+    }
+}
